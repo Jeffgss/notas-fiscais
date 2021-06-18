@@ -1,4 +1,5 @@
 import { handleStatus } from "../utils/promise-helpers.js";
+import { partialize } from "../utils/operators.js";
 
 const API = "http://localhost:3000/notas";
 
@@ -13,6 +14,7 @@ export const notasService = {
     return fetch(API).then(handleStatus);
   },
   sumItems(code) {
+    const filterItems = partialize(filterItemsByCode, code);
     return this.listAll().then(sumItems(code));
   },
 };
