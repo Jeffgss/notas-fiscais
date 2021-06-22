@@ -7,6 +7,7 @@ import {
   partialize,
   pipe,
 } from "./utils/operators.js";
+import { EventEmitter } from "./utils/event-emitter.js";
 
 const operations = pipe(
   partialize(takeUntil, 3),
